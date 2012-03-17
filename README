@@ -1,0 +1,25 @@
+
+FMongo is a library for interacting with MongoDB from F#.
+
+  * Strongly typed wrapper over a MongoDB collection
+  * Mapping to and from many F# types, including all primitive types, records, unions, tuples, lists, arrays, dictionaries, and classes with public read/write fields/properties.
+	* Basic quotation querying - some edge cases to work out (you can still use it alongside the full feature set provided by MongoDB.Driver).
+	* Early release. Passes only basic tests.
+  
+Dependencies (included):
+  
+  * Official MongoDB C# Driver: https://github.com/mongodb/mongo-csharp-driver
+
+License: Apache 2.0
+
+Maintainers:
+	
+  * Dan Finch (d@nfin.ch)
+
+Contributors:
+
+	* Emil Busch (ebb.zec@gmail.com)
+
+Copyrights:
+
+  * All code (c) 2012 Promitheia
