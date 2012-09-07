@@ -6,7 +6,7 @@ FMongo is a library for interacting with MongoDB from F#.
 	* Basic quotation querying - some edge cases to work out (you can still use it alongside the full feature set provided by MongoDB.Driver).
 	* Early release. Passes only basic tests.
   
-Dependencies (included):
+Dependencies (submodules):
   
   * Official MongoDB C# Driver: https://github.com/mongodb/mongo-csharp-driver
 

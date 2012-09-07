@@ -9,7 +9,7 @@ open Microsoft.FSharp.Quotations
 open FMongo.Util
 open FMongo.Mapping
 open System.Collections
-
+(*
 type private FV = FSharpValue
 type private FT = FSharpType
 type private Q = Query
@@ -93,3 +93,4 @@ module Query =
 
     build' e
 
+*)

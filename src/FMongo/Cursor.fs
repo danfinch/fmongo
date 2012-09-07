@@ -13,7 +13,7 @@ open FMongo.Mapping
 type 'a Cursor (cur : BsonDocument MongoCursor) =
   let mutable result : 'a ResizeArray option = None
   new (col : BsonDocument MongoCollection, q : IMongoQuery) =
-    Cursor (MongoCursor<BsonDocument>(col, q))
+    Cursor (MongoCursor<BsonDocument>(col, q, ReadPreference.Nearest))
   member self.Clone<'b> () = Cursor cur
   member self.Count () = cur.Count ()
   member self.Explain (?verbose : bool) = cur.Explain (match verbose with Some b -> b | _ -> false)
@@ -31,7 +31,7 @@ type 'a Cursor (cur : BsonDocument MongoCursor) =
   member self.SetOptions x = Cursor (cur.SetOptions x)
   member self.SetShowDiskLoc () = Cursor (cur.SetShowDiskLoc ())
   member self.SetSkip x = Cursor (cur.SetSkip x)
-  member self.SetSlaveOk b = Cursor (cur.SetSlaveOk b)
+  member self.SetReadPreference b = Cursor (cur.SetReadPreference b)
   member self.SetSnapshot () = Cursor (cur.SetSnapshot ())
   member self.SetSortOrder (x : string array) = Cursor (cur.SetSortOrder x)
   member self.SetSortOrder (x : IMongoSortBy) = Cursor (cur.SetSortOrder x)
@@ -64,7 +64,7 @@ module Cursor =
   let setOptions doc (m : _ Cursor) = m.SetOptions doc
   let setShowDiskLoc (m : _ Cursor) = m.SetShowDiskLoc()
   let setSkip x (m : _ Cursor) = m.SetSkip x
-  let setSlaveOk b (m : _ Cursor) = m.SetSlaveOk b
+  let setReadPreference b (m : _ Cursor) = m.SetReadPreference b
   let setSnapshot (m : _ Cursor) = m.SetSnapshot()
   let setSortOrder (x : IMongoSortBy) (m : _ Cursor) = m.SetSortOrder x
   let setSortOrderByArray (s : string array) (m : _ Cursor) = m.SetSortOrder s

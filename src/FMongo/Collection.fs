@@ -26,16 +26,16 @@ type 'a Collection (c : BsonDocument MongoCollection) =
   member self.FindAll () =
     Cursor<'a>(c, Query.Null)
 
-  member self.Find e =
-    Cursor<'a>(c, Query.build e)
+  (*member self.Find e =
+    Cursor<'a>(c, Query.build e)*)
 
-  member self.FindOne e =
+  (*member self.FindOne e =
     self.Find e
     |> Cursor.setLimit 1
     |> List.ofSeq
     |> function
        | [] -> None
-       | h::t -> Some h
+       | h::t -> Some h*)
 
   member self.Insert (v : 'a) =
     v 
